@@ -11,7 +11,7 @@ const FoodWidget = ({ imageUrl, productName, expirationDate, location, address }
     useEffect(() => {
         // Animate the height of the widget
         Animated.timing(heightAnim, {
-            toValue: expanded ? 200 : 130, // Expanded and collapsed height
+            toValue: expanded ? 230 : 130, // Expanded and collapsed height
             duration: 300, // Duration of the animation
             easing: Easing.ease, // Easing function
             useNativeDriver: false, // Set to true if animating transform properties
@@ -77,12 +77,12 @@ const FoodWidget = ({ imageUrl, productName, expirationDate, location, address }
                     style={{
                         opacity: opacityAnim,
                         transform: [{ translateY: translateYAnim }],
+                        backgroundColor: 'w-full'
                     }}
-                    className="px-3 rounded-full"
                 >
-                 
-                <Text className="text-lg">{address}</Text>
-                   
+
+                    <Text className="text-lg text-black bg-blue w-full mt-5">{address}</Text>
+
                 </Animated.View>
 
                 {/* Animated Button */}
@@ -92,7 +92,7 @@ const FoodWidget = ({ imageUrl, productName, expirationDate, location, address }
                         transform: [{ translateY: translateYAnim }],
                         backgroundColor: '#769C65'
                     }}
-                    className="p-3 rounded-full"
+                    className="p-3 mt-3 rounded-full"
                 >
                     <TouchableOpacity onPress={() => alert('Button Pressed')}>
                         <Text className="ml-3 text-white text-lg">Reservieren</Text>
