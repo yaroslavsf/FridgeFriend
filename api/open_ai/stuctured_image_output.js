@@ -41,7 +41,7 @@ export const analyzeImageWithStructuredOutput = async (image, model = "gpt-4o-mi
             "content": [
                 {
                     "type": "text",
-                    "text": `Please describe each product in this image and give result is the following format: ${format}`
+                    "text": `Please describe each product in this image and give result is the following format: ${format}, give me the result in Swiss German language`
                 },
                 {
                     "type": "image_url",
