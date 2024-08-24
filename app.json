@@ -20,8 +20,12 @@
         "backgroundColor": "#ffffff"
       }
     },
+    "scheme": "fridgeFriend",
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "plugins": [
+      "expo-router"
+    ]
   }
 }
