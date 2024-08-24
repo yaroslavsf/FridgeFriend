@@ -10,16 +10,27 @@ import { ModalItem } from './ModalItem';
 const Profile = () => {
     const router = useRouter();
 
-    // Modal item config
-    const [dropdownVisible, setDropdownVisible] = useState(false);
-    const options = [
+    // Modal item Location config
+    const [dropdownVisibleLocation, setDropdownVisibleLocation] = useState(false);
+    const optionsLocation = [
         'Berlin',
         'Munich',
         'Hamburg'
     ];
-    const closeDropdown = () => {
-        setDropdownVisible(false);
+    const closeDropdownLocation = () => {
+        setDropdownVisibleLocation(false);
     };
+
+      // Modal item Language config
+      const [dropdownVisibleLanguage, setDropdownVisibleLanguage] = useState(false);
+      const optionsLanguage = [
+          'Bern Deutsch',
+          'Deutsch',
+          'Englisch'
+      ];
+      const closeDropdownLanguage = () => {
+          setDropdownVisibleLanguage(false);
+      };
 
     return (
         <View>
@@ -57,26 +68,27 @@ const Profile = () => {
                     <Text className="text-xl font-bold">Meine Produkte</Text>
                 </View>
 
-                {/* Modal usage */}
-                <Pressable onPress={() => setDropdownVisible(!dropdownVisible)}>
+                {/* Modal Location */}
+                <Pressable onPress={() => setDropdownVisibleLocation(!dropdownVisibleLocation)}>
                     <View className="flex-row items-center justify-start w-full mt-5 ml-5">
-
                         <Icon name="navigate" size={30} color="#000000" className="mr-2" />
                         <Text className="text-xl font-bold">Standort</Text>
-
-
                     </View>
-                    <ModalItem visible={dropdownVisible} onClose={closeDropdown} options={options} />
+                    <ModalItem visible={dropdownVisibleLocation} onClose={closeDropdownLocation} options={optionsLocation} />
                 </Pressable>
 
                 <View className="flex-row items-center justify-start w-full mt-5 ml-5">
                     <Icon name="settings" size={30} color="#000000" className="mr-2" />
                     <Text className="text-xl font-bold">Kontoeinstellungen</Text>
                 </View>
-                <View className="flex-row items-center justify-start w-full mt-5 ml-5">
+                {/* Modal Location */}
+                <Pressable onPress={() => setDropdownVisibleLanguage(!dropdownVisibleLanguage)}>
+                    <View className="flex-row items-center justify-start w-full mt-5 ml-5">
                     <Icon name="language" size={30} color="#000000" className="mr-2" />
-                    <Text className="text-xl font-bold">Sprache</Text>
-                </View>
+                        <Text className="text-xl font-bold">Sprache</Text>
+                    </View>
+                    <ModalItem visible={dropdownVisibleLanguage} onClose={closeDropdownLanguage} options={optionsLanguage} />
+                </Pressable>
 
             </ScrollView>
             <View className="flex-row items-center justify-between w-full mt-3">
