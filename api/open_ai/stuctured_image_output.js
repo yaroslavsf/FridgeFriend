@@ -1,7 +1,7 @@
 import * as FileSystem from 'expo-file-system';
 import axios from "axios";
 
-import {instance} from "./api_config";
+import { instance } from "./api_config";
 
 const apiKey = "";
 
@@ -65,18 +65,18 @@ export const analyzeImageWithStructuredOutput = async (image, model = "gpt-4o-mi
                             "items": {
                                 "type": "object",
                                 "properties": {
-                                    "name": {"type": "string"},
-                                    "type": {"type": "string"},
+                                    "name": { "type": "string" },
+                                    "type": { "type": "string" },
                                     "amount": {
                                         "type": "object",
-                                        "properties": {"quantity": {"type": "string"}, "unit": {"type": "string"}},
+                                        "properties": { "quantity": { "type": "string" }, "unit": { "type": "string" } },
                                         "required": ["quantity", "unit"],
                                         "additionalProperties": false
                                     },
-                                    "image_url": {"type": "string"},
-                                    "category": {"type": "string"},
-                                    "storage_temperature": {"type": "string"},
-                                    "packaging": {"type": "string"}
+                                    "image_url": { "type": "string" },
+                                    "category": { "type": "string" },
+                                    "storage_temperature": { "type": "string" },
+                                    "packaging": { "type": "string" }
                                 },
                                 "required": ["name", "type", "image_url", "category", "storage_temperature", "packaging", "amount"],
                                 "additionalProperties": false

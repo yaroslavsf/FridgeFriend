@@ -4,7 +4,6 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import Icon from 'react-native-vector-icons/Ionicons';
 import FoodWidget from "../FoodWidget";
 import HeaderWidget from "../HeaderWidget";
-import * as SecureStore from "expo-secure-store";
 import {useLocalSearchParams, useRouter} from "expo-router";
 
 // Initialize data if not present
