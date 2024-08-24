@@ -78,7 +78,7 @@ const index = () => {
     );
 
     return (
-        <View style={{ flex: 1, backgroundColor: 'white' }}>
+        <View className="flex-1 justify-center items-center bg-white">
             <HeaderWidget title="3011 Bern" />
             <View style={{ flexDirection: 'row', alignItems: 'center', backgroundColor: '#769C65', borderColor: 'gray', borderWidth: 1, borderRadius: 25, paddingHorizontal: 10, paddingVertical: 8, margin: 10 }}>
                 <Icon name="search" size={20} color="white" />
