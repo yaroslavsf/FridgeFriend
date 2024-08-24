@@ -38,7 +38,7 @@ export default function TabLayout() {
                 name="index"
                 options={{
                     title: 'Home',
-                    tabBarIcon: ({ color }) => <FontAwesome size={26} name="home" color={color} />,
+                    tabBarIcon: ({ color }) => <FontAwesome size={26} name="home" color={color} className="ml-10" />,
                 }}
             />
             <Tabs.Screen
@@ -52,7 +52,7 @@ export default function TabLayout() {
                 name="explore"
                 options={{
                     title: 'Explore',
-                    tabBarIcon: ({ color }) => <FontAwesome size={26} name="book" color={color} />,
+                    tabBarIcon: ({ color }) => <FontAwesome size={26} name="book" color={color} className="mr-10" />,
                 }}
             />
         </Tabs>
