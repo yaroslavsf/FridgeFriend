@@ -1,6 +1,7 @@
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { Tabs } from 'expo-router';
 import { ImageBackground, View } from 'react-native';
+import BlurView from "expo-blur";
 
 export default function TabLayout() {
     color = "white";
@@ -23,13 +24,14 @@ export default function TabLayout() {
                     paddingBottom: 0,
                 },
                 tabBarBackground: () => (
-                    <ImageBackground
+                    <BlurView
+                        className="blur-2xl"
                         source={require('../../assets/Tabbar.png')} // Replace with your image path
                     >
                         <View className="flex-row justify-around items-center h-full text-white ">
                             {/* Tab buttons will be rendered here */}
                         </View>
-                    </ImageBackground>
+                    </BlurView>
                 )
 
             }}

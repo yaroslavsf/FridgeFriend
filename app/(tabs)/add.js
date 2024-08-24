@@ -12,7 +12,7 @@ const AddItem = () => {
     };
 
     return (
-        <View>
+        <View className="flex-1 justify-center items-center bg-white">
             <HeaderWidget title="Scän di Chüeuschrank!" />
             <TextInput
                 placeholder="Enter item"

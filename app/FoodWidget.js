@@ -14,7 +14,10 @@ const FoodWidget = ({ imageUrl, productName, expirationDate, location, isFavorit
             {/* Details Section */}
             <View className="ml-4 flex-1">
                 <Text className="text-lg font-bold">{productName}</Text>
-                <Text className="text-gray-500">Exp. {expirationDate}</Text>
+                <View className="flex-row items-center mt-1">
+                    <Icon name="calendar-outline" size={16} color="#000" />
+                    <Text className="ml-1 text-gray-500">{expirationDate}</Text>
+                </View>
                 <View className="flex-row items-center mt-1">
                     <Icon name="location-outline" size={16} color="#000" />
                     <Text className="ml-1 text-gray-500">{location}</Text>
@@ -24,7 +27,7 @@ const FoodWidget = ({ imageUrl, productName, expirationDate, location, isFavorit
             {/* Favorite Icon */}
             <TouchableOpacity onPress={onToggleFavorite} className="absolute top-2 right-2">
                 <Icon
-                    name={isFavorite ? "heart" : "heart-outline"} // Filled heart if favorite, outline if not
+                    name={isFavorite ? "information-circle" : "information-circle-outline"} // Filled heart if favorite, outline if not
                     size={24}
                     color={isFavorite ? "#759B64" : "#000"} // Change color based on favorite status
                 />
