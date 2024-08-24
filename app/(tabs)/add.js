@@ -17,15 +17,14 @@ const AddItem = () => {
     const [isLoading, setIsLoading] = useState(false);  // State to manage the loader
 
     if (!permission) {
-        // Camera permissions are still loading.
         return <View />;
     }
 
     if (!permission.granted) {
         // Camera permissions are not granted yet.
         return (
-            <View style={styles.container}>
-                <Text style={styles.message}>We need your permission to show the camera</Text>
+            <View className="flex-1 justify-center">
+                <Text className="text-center pb-4">We need your permission to show the camera</Text>
                 <Button onPress={requestPermission} title="Grant Permission" />
             </View>
         );
@@ -75,59 +74,36 @@ const AddItem = () => {
     };
 
     return (
-        <View style={styles.container}>
-            <HeaderWidget title="Scanne deinen Kühlschrank!" />
-            <CameraView
-                animateShutter={false}
-                mute={true}
-                style={styles.camera}
-                type={facing}
-                ref={cameraRef}
-                onCameraReady={onCameraReady}
-                ratio="16:9"
-            >
-                <View style={styles.buttonContainer}>
-                    {isLoading ? (  // Show loader if isLoading is true
-                        <ActivityIndicator size="large" color="#ffffff" />
-                    ) : (
-                        <TouchableOpacity style={styles.button} onPress={takePhoto}>
-                            <Text style={styles.text}>Take Photo</Text>
-                        </TouchableOpacity>
-                    )}
-                </View>
-            </CameraView>
-        </View>
+        <>
+            <HeaderWidget title="Add Item" className="z-50 pb-10 bg-white" />
+            <View className="flex-1 justify-center items-center">
+                <CameraView
+                    animateShutter={false}
+                    mute={true}
+                    style={{
+                        width: '100%',
+                        height: '100%',
+                        position: 'absolute', // Make sure the camera view covers the parent container
+                    }}
+                    className="mb-6"
+                    type={facing}
+                    ref={cameraRef}
+                    onCameraReady={onCameraReady}
+                    ratio="16:9"
+                >
+                    <View className="flex-1 flex-row bg-transparent m-40">
+                        {isLoading ? (  // Show loader if isLoading is true
+                            <ActivityIndicator size="large" color="#ffffff" />
+                        ) : (
+                            <TouchableOpacity className="flex-1 self-end items-center bg-slate-800 opacity-60 py-5 px-3 rounded-full" onPress={takePhoto}>
+                                <Text className="text-2xl font-bold text-white ">Take Photo</Text>
+                            </TouchableOpacity>
+                        )}
+                    </View>
+                </CameraView>
+            </View>
+        </>
     );
 };
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-    },
-    message: {
-        textAlign: 'center',
-        paddingBottom: 10,
-    },
-    camera: {
-        flex: 0.8,
-    },
-    buttonContainer: {
-        flex: 1,
-        flexDirection: 'row',
-        backgroundColor: 'transparent',
-        margin: 64,
-    },
-    button: {
-        flex: 1,
-        alignSelf: 'flex-end',
-        alignItems: 'center',
-    },
-    text: {
-        fontSize: 24,
-        fontWeight: 'bold',
-        color: 'white',
-    },
-});
 
 export default AddItem;

@@ -24,18 +24,14 @@ const CalendarComponent = () => {
 
     return (
         <View className="flex-1 justify-center items-center p-4">
-            <Text className="text-lg mb-4">Selected Date: {formattedDate}</Text>
-            <Button title="Select Date" onPress={() => setShow(true)} />
 
-            {show && (
-                <DateTimePicker
-                    value={date}
-                    mode="date"
-                    display="default" // Change this to "spinner" or "calendar" depending on the platform and preference
-                    onChange={handleDateChange}
-                    locale="en-GB" // For date formatting consistency
-                />
-            )}
+            <DateTimePicker
+                value={date}
+                mode="date"
+                display="default" // Change this to "spinner" or "calendar" depending on the platform and preference
+                onChange={handleDateChange}
+                locale="en-GB" // For date formatting consistency
+            />
         </View>
     );
 };
