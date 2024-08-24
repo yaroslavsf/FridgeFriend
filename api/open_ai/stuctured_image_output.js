@@ -1,8 +1,6 @@
 import * as FileSystem from 'expo-file-system';
 import axios from "axios";
 
-import { instance } from "./api_config";
-
 const apiKey = "";
 
 const encodeImage = async (imageUri) => {
