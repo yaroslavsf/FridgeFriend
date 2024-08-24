@@ -1,7 +1,7 @@
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { Tabs } from 'expo-router';
 import { ImageBackground, View } from 'react-native';
-import BlurView from "expo-blur";
+import { BlurView } from "expo-blur";
 
 export default function TabLayout() {
     color = "white";

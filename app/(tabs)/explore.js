@@ -133,6 +133,11 @@ const explore = () => {
                     <Text className="text-center text-white font-bold text-xl">✨ Mach mein Rezept!</Text>
                 </TouchableOpacity>
             </ScrollView>
+
+
+            <View>
+                <Text className="text-sky-300">Open up App.js to start working on your app!</Text>
+            </View>
         </View>
     );
 };
