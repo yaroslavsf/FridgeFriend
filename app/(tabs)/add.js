@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View, TextInput, Button } from 'react-native';
 import HeaderWidget from '../HeaderWidget';
+import Calendar from "../Calendar.js";
 
 const AddItem = () => {
     const [item, setItem] = useState('');
@@ -18,6 +19,7 @@ const AddItem = () => {
                 value={item}
                 onChangeText={setItem}
             />
+            <Calendar />
             <Button title="Add" onPress={handleAddItem} />
         </View>
     );
