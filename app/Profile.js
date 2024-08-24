@@ -21,16 +21,16 @@ const Profile = () => {
         setDropdownVisibleLocation(false);
     };
 
-      // Modal item Language config
-      const [dropdownVisibleLanguage, setDropdownVisibleLanguage] = useState(false);
-      const optionsLanguage = [
-          'Bern Deutsch',
-          'Deutsch',
-          'Englisch'
-      ];
-      const closeDropdownLanguage = () => {
-          setDropdownVisibleLanguage(false);
-      };
+    // Modal item Language config
+    const [dropdownVisibleLanguage, setDropdownVisibleLanguage] = useState(false);
+    const optionsLanguage = [
+        'Bern Deutsch',
+        'Deutsch',
+        'Englisch'
+    ];
+    const closeDropdownLanguage = () => {
+        setDropdownVisibleLanguage(false);
+    };
 
     return (
         <View>
@@ -55,10 +55,16 @@ const Profile = () => {
             </View>
 
             <ScrollView>
-                <View className="flex-row items-center justify-start w-full mt-5 ml-5">
-                    <Icon name="heart" size={30} color="#AFE1AF" className="mr-2" />
-                    <Text className="text-xl font-bold">Präferenzen</Text>
-                </View>
+
+                <Pressable onPress={() => { router.navigate("Preferences") }}>
+                    <View className="mt-5 ml-5 flex-row items-center justify-start w-full">
+                        <Icon name="heart" size={30} color="#AFE1AF" className="mr-2" />
+                        <Text className="text-xl font-bold">Präferenzen</Text>
+                    </View>
+                </Pressable>
+
+
+
                 <View className="flex-row items-center justify-start w-full mt-5 ml-5">
                     <Icon name="bag-handle-outline" size={30} color="#000000" className="mr-2" />
                     <Text className="text-xl font-bold">Reservationen</Text>
@@ -84,7 +90,7 @@ const Profile = () => {
                 {/* Modal Location */}
                 <Pressable onPress={() => setDropdownVisibleLanguage(!dropdownVisibleLanguage)}>
                     <View className="flex-row items-center justify-start w-full mt-5 ml-5">
-                    <Icon name="language" size={30} color="#000000" className="mr-2" />
+                        <Icon name="language" size={30} color="#000000" className="mr-2" />
                         <Text className="text-xl font-bold">Sprache</Text>
                     </View>
                     <ModalItem visible={dropdownVisibleLanguage} onClose={closeDropdownLanguage} options={optionsLanguage} />
