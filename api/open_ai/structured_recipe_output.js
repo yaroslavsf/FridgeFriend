@@ -4,8 +4,6 @@ const apiKey = "";
 
 export const analyzeImageWithStructuredOutput = async (products, type, model = "gpt-4o-mini") => {
 
-    console.log("PRODUCTS: ", products);
-
     const format = {
         "name": "The name of the recipe (e.g., Apple Pie, Spaghetti Carbonara).",
         "description": "The three words sentence describing the recipe (e.g., Delicious apple pie).",

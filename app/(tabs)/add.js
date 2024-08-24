@@ -50,13 +50,10 @@ const AddItem = () => {
     };
 
     const handlePhotoUpload = async (newPhoto) => {
-        console.log('Uploading photo:', newPhoto);
-
         setIsLoading(true);  // Show loader while waiting for response
 
         try {
             analyzeImageWithStructuredOutput(newPhoto).then((response) => {
-                console.log('Upload success:', JSON.stringify(response.data));
                 setIsLoading(false);  // Hide loader after the process is complete
                 router.push({
                     pathname: "../EditResults",
