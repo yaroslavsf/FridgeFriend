@@ -31,7 +31,7 @@ const explore = () => {
             <HeaderWidget title="Rezeptbuch" />
             <ScrollView className="w-full">
                 <View className="mb-4 mx-4 mt-8">
-                    <Text className="text-lg font-semibold mb-2">Art</Text>
+                    <Text className="text-xl font-semibold mb-2">Art</Text>
                     <View className="flex-row flex-wrap justify-start">
                         <TouchableOpacity
                             className={`${buttonStyle} bg-[#769C65] ${mealType === "Frühstück" ? selectedButtonStyle : ""}`}
@@ -73,7 +73,7 @@ const explore = () => {
                 </View>
 
                 <View className="mb-4 mx-5">
-                    <Text className="text-lg font-semibold mb-2">Schwierigkeit</Text>
+                    <Text className="text-xl font-semibold mb-2">Schwierigkeit</Text>
                     <View className="flex-row flex-wrap justify-start">
                         <TouchableOpacity
                             className={`${buttonStyle} bg-[#769C65] ${difficulty === "Einfach" ? selectedButtonStyle : ""}`}
@@ -97,7 +97,7 @@ const explore = () => {
                 </View>
 
                 <View className="mb-4 mx-5">
-                    <Text className="text-lg font-semibold mb-2">Entfernung</Text>
+                    <Text className="text-xl font-semibold mb-2">Entfernung</Text>
                     <View className="flex-row flex-wrap justify-start">
                         <TouchableOpacity
                             className={`${buttonStyle} bg-[#769C65] ${radius === ">500m" ? selectedButtonStyle : ""}`}
@@ -133,11 +133,6 @@ const explore = () => {
                     <Text className="text-center text-white font-bold text-xl">✨ Mach mein Rezept!</Text>
                 </TouchableOpacity>
             </ScrollView>
-
-
-            <View>
-                <Text className="text-sky-300">Open up App.js to start working on your app!</Text>
-            </View>
         </View>
     );
 };
