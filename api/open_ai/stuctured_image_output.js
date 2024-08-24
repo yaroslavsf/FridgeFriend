@@ -3,7 +3,7 @@ import axios from "axios";
 
 import {instance} from "./api_config";
 
-const apiKey = process.env.OPEN_AI_KEY;
+const apiKey = ""
 
 const encodeImage = async (imageUri) => {
     try {
@@ -90,18 +90,11 @@ export const analyzeImageWithStructuredOutput = async (image, model = "gpt-4o-mi
     }
 
 
-    const result = axios.post('https://api.openai.com/v1/chat/completions', JSON.stringify(data), {
+    return await axios.post('https://api.openai.com/v1/chat/completions', JSON.stringify(data), {
         headers: {
             'Authorization': `Bearer ${apiKey}`,
             'Content-Type': 'application/json'
         }
-    }).then((response) => {
-        console.log(JSON.stringify(response.data), "RESPONSE");
-    }).catch((error) => {
-        console.log(JSON.stringify(error), "ERROR");
-
-        console.log(JSON.stringify(result));
-        return result.data;
     })
 
 
