@@ -32,28 +32,28 @@ const Profile = () => {
             </View>
 
             <View>
-                <View className="flex-row items-center justify-start w-full mt-3 ml-5">
+                <View className="flex-row items-center justify-start w-full mt-5 ml-5">
                     <Icon name="heart" size={30} color="#AFE1AF" className="mr-2" />
                     <Text className="text-xl font-bold">Präferenzen</Text>
                 </View>
-                <View className="flex-row items-center justify-start w-full mt-3 ml-5">
-                    <Icon name="heart" size={30} color="#AFE1AF" className="mr-2" />
+                <View className="flex-row items-center justify-start w-full mt-5 ml-5">
+                    <Icon name="bag-handle-outline" size={30} color="#000000" className="mr-2" />
                     <Text className="text-xl font-bold">Reservationen</Text>
                 </View>
-                <View className="flex-row items-center justify-start w-full mt-3 ml-5">
-                    <Icon name="heart" size={30} color="#AFE1AF" className="mr-2" />
+                <View className="flex-row items-center justify-start w-full mt-5 ml-5">
+                    <Icon name="cube-outline" size={30} color="#000000" className="mr-2" />
                     <Text className="text-xl font-bold">Meine Produkte</Text>
                 </View>
-                <View className="flex-row items-center justify-start w-full mt-3 ml-5">
-                    <Icon name="heart" size={30} color="#AFE1AF" className="mr-2" />
+                <View className="flex-row items-center justify-start w-full mt-5 ml-5">
+                    <Icon name="navigate" size={30} color="#000000" className="mr-2" />
                     <Text className="text-xl font-bold">Standort</Text>
                 </View>
-                <View className="flex-row items-center justify-start w-full mt-3 ml-5">
-                    <Icon name="heart" size={30} color="#AFE1AF" className="mr-2" />
+                <View className="flex-row items-center justify-start w-full mt-5 ml-5">
+                    <Icon name="settings" size={30} color="#000000" className="mr-2" />
                     <Text className="text-xl font-bold">Kontoeinstellungen</Text>
                 </View>
-                <View className="flex-row items-center justify-start w-full mt-3 ml-5">
-                    <Icon name="heart" size={30} color="#AFE1AF" className="mr-2" />
+                <View className="flex-row items-center justify-start w-full mt-5 ml-5">
+                    <Icon name="language" size={30} color="#000000" className="mr-2" />
                     <Text className="text-xl font-bold">Sprache</Text>
                 </View>
 
