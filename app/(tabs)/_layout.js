@@ -1,32 +1,8 @@
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { Tabs } from 'expo-router';
-import { ImageBackground, View } from 'react-native';
+import { ImageBackground, View, SafeAreaView } from 'react-native';
 import { BlurView } from "expo-blur";
 import { LinearGradient } from 'expo-linear-gradient';
-
-
-const TabBarBackground = () => {
-    const StyledBlurView = styled(BlurView);
-    const StyledLinearGradient = styled(LinearGradient);
-
-    return (
-        <StyledBlurView
-            className="absolute inset-0"
-            intensity={50} // Adjust the blur intensity
-            tint="light"  // Options: 'light', 'dark', 'default'
-        >
-            <StyledLinearGradient
-                colors={['#006400', 'transparent']} // Dark green to transparent
-                className="absolute inset-0"
-                start={{ x: 0, y: 0 }}
-                end={{ x: 0, y: 1 }}
-            />
-            <View className="flex-row justify-around items-center h-full text-white">
-                {/* Tab buttons will be rendered here */}
-            </View>
-        </StyledBlurView>
-    );
-};
 
 
 export default function TabLayout() {
@@ -51,13 +27,12 @@ export default function TabLayout() {
                 },
                 tabBarBackground: () => (
                     <BlurView
-                        intensity={10}
-                        source={require('../../assets/Tabbar.png')} // Replace with your image path
+                        intensity={10}// Ensure BlurView covers the entire are
                     >
                         <ImageBackground
-                            source={require('../../assets/Tabbar.png')} // Replace with your image path
+                            source={require('../../assets/Tabbar.png')}
                         >
-                            <View className="flex-row justify-around items-center h-full text-white ">
+                            <View className="flex-row justify-around items-center h-full">
                                 {/* Tab buttons will be rendered here */}
                             </View>
                         </ImageBackground>
