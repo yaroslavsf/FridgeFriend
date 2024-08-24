@@ -1,14 +1,37 @@
 import { Link } from 'expo-router';
 import React from 'react';
-import { View, Text, TouchableOpacity, Image } from 'react-native';
+import { View, Text, TouchableOpacity, Image, ScrollView, Pressable } from 'react-native';
 import { useRouter } from 'expo-router';
 import Icon from 'react-native-vector-icons/Ionicons';
 import SuccessBarImg from '../assets/SuccessBarImg.png';
-
-
+import { useState } from 'react';
+import { ModalItem } from './ModalItem';
 
 const Profile = () => {
     const router = useRouter();
+
+    // Modal item Location config
+    const [dropdownVisibleLocation, setDropdownVisibleLocation] = useState(false);
+    const optionsLocation = [
+        'Berlin',
+        'Munich',
+        'Hamburg'
+    ];
+    const closeDropdownLocation = () => {
+        setDropdownVisibleLocation(false);
+    };
+
+      // Modal item Language config
+      const [dropdownVisibleLanguage, setDropdownVisibleLanguage] = useState(false);
+      const optionsLanguage = [
+          'Bern Deutsch',
+          'Deutsch',
+          'Englisch'
+      ];
+      const closeDropdownLanguage = () => {
+          setDropdownVisibleLanguage(false);
+      };
+
     return (
         <View>
             <TouchableOpacity onPress={() => router.back()} className="mt-7 ml-3 flex-row items-center">
@@ -31,33 +54,43 @@ const Profile = () => {
                 </View>
             </View>
 
-            <View>
-                <View className="flex-row items-center justify-start w-full mt-3 ml-5">
+            <ScrollView>
+                <View className="flex-row items-center justify-start w-full mt-5 ml-5">
                     <Icon name="heart" size={30} color="#AFE1AF" className="mr-2" />
                     <Text className="text-xl font-bold">Präferenzen</Text>
                 </View>
-                <View className="flex-row items-center justify-start w-full mt-3 ml-5">
-                    <Icon name="heart" size={30} color="#AFE1AF" className="mr-2" />
+                <View className="flex-row items-center justify-start w-full mt-5 ml-5">
+                    <Icon name="bag-handle-outline" size={30} color="#000000" className="mr-2" />
                     <Text className="text-xl font-bold">Reservationen</Text>
                 </View>
-                <View className="flex-row items-center justify-start w-full mt-3 ml-5">
-                    <Icon name="heart" size={30} color="#AFE1AF" className="mr-2" />
+                <View className="flex-row items-center justify-start w-full mt-5 ml-5">
+                    <Icon name="cube-outline" size={30} color="#000000" className="mr-2" />
                     <Text className="text-xl font-bold">Meine Produkte</Text>
                 </View>
-                <View className="flex-row items-center justify-start w-full mt-3 ml-5">
-                    <Icon name="heart" size={30} color="#AFE1AF" className="mr-2" />
-                    <Text className="text-xl font-bold">Standort</Text>
-                </View>
-                <View className="flex-row items-center justify-start w-full mt-3 ml-5">
-                    <Icon name="heart" size={30} color="#AFE1AF" className="mr-2" />
+
+                {/* Modal Location */}
+                <Pressable onPress={() => setDropdownVisibleLocation(!dropdownVisibleLocation)}>
+                    <View className="flex-row items-center justify-start w-full mt-5 ml-5">
+                        <Icon name="navigate" size={30} color="#000000" className="mr-2" />
+                        <Text className="text-xl font-bold">Standort</Text>
+                    </View>
+                    <ModalItem visible={dropdownVisibleLocation} onClose={closeDropdownLocation} options={optionsLocation} />
+                </Pressable>
+
+                <View className="flex-row items-center justify-start w-full mt-5 ml-5">
+                    <Icon name="settings" size={30} color="#000000" className="mr-2" />
                     <Text className="text-xl font-bold">Kontoeinstellungen</Text>
                 </View>
-                <View className="flex-row items-center justify-start w-full mt-3 ml-5">
-                    <Icon name="heart" size={30} color="#AFE1AF" className="mr-2" />
-                    <Text className="text-xl font-bold">Sprache</Text>
-                </View>
+                {/* Modal Location */}
+                <Pressable onPress={() => setDropdownVisibleLanguage(!dropdownVisibleLanguage)}>
+                    <View className="flex-row items-center justify-start w-full mt-5 ml-5">
+                    <Icon name="language" size={30} color="#000000" className="mr-2" />
+                        <Text className="text-xl font-bold">Sprache</Text>
+                    </View>
+                    <ModalItem visible={dropdownVisibleLanguage} onClose={closeDropdownLanguage} options={optionsLanguage} />
+                </Pressable>
 
-            </View>
+            </ScrollView>
             <View className="flex-row items-center justify-between w-full mt-3">
 
             </View>
