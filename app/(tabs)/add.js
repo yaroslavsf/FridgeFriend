@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { View, TextInput, Button } from 'react-native';
+import HeaderWidget from '../HeaderWidget';
 
 const AddItem = () => {
     const [item, setItem] = useState('');
@@ -11,6 +12,7 @@ const AddItem = () => {
 
     return (
         <View>
+            <HeaderWidget title="Scän di Chüeuschrank!" />
             <TextInput
                 placeholder="Enter item"
                 value={item}
