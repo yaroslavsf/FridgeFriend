@@ -3,7 +3,7 @@ import axios from "axios";
 
 import {instance} from "./api_config";
 
-const apiKey = ""
+const apiKey = "";
 
 const encodeImage = async (imageUri) => {
     try {
@@ -27,7 +27,7 @@ const format = {
         "quantity": "The number of items or the volume of the item (e.g., 5, 1).",
         "unit": "The unit of measurement for the quantity (e.g., pieces, liters, grams)."
     },
-    "image_url": "an image of a detected item, please give anything you can find in internet (e.g., https://upload.wikimedia.org/wikipedia/commons/8/8a/Banana-Single.jpg)",
+    "image_url": "an image of a detected item, please give anything you can find in internet (e.g., https://upload.wikimedia.org/wikipedia/commons/8/8a/Banana-Single.jpg).",
     "category": "A broader classification, such as 'fresh', 'frozen', 'canned', etc.",
     "storage_temperature": "The optimal temperature at which the item should be stored (e.g., 4°C).",
     "packaging": "The type of packaging the item is in (e.g., loose, carton, plastic).",
