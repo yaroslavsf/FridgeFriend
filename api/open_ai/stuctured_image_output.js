@@ -27,6 +27,7 @@ const format = {
         "quantity": "The number of items or the volume of the item (e.g., 5, 1).",
         "unit": "The unit of measurement for the quantity (e.g., pieces, liters, grams)."
     },
+    "image_url": "an image of a detected item, please give anything you can find in internet (e.g., https://upload.wikimedia.org/wikipedia/commons/8/8a/Banana-Single.jpg)",
     "category": "A broader classification, such as 'fresh', 'frozen', 'canned', etc.",
     "storage_temperature": "The optimal temperature at which the item should be stored (e.g., 4°C).",
     "packaging": "The type of packaging the item is in (e.g., loose, carton, plastic).",
@@ -34,7 +35,7 @@ const format = {
 
 export const analyzeImageWithStructuredOutput = async (image, model = "gpt-4o-mini") => {
 
-    const encodedImage= await encodeImage(image);
+    const encodedImage = await encodeImage(image);
 
     const data = {
         "model": "gpt-4o-mini", "messages": [{
@@ -53,40 +54,41 @@ export const analyzeImageWithStructuredOutput = async (image, model = "gpt-4o-mi
             ]
         }],
         "response_format": {
-        "type": "json_schema",
+            "type": "json_schema",
             "json_schema": {
-            "name": "product_description",
+                "name": "product_description",
                 "schema": {
-                "type": "object",
+                    "type": "object",
                     "properties": {
-                    "products": {
-                        "type": "array",
+                        "products": {
+                            "type": "array",
                             "items": {
-                            "type": "object",
+                                "type": "object",
                                 "properties": {
-                                "name": {"type": "string"},
-                                "type": {"type": "string"},
-                                "amount": {
-                                    "type": "object",
+                                    "name": {"type": "string"},
+                                    "type": {"type": "string"},
+                                    "amount": {
+                                        "type": "object",
                                         "properties": {"quantity": {"type": "string"}, "unit": {"type": "string"}},
-                                    "required": ["quantity", "unit"],
+                                        "required": ["quantity", "unit"],
                                         "additionalProperties": false
+                                    },
+                                    "image_url": {"type": "string"},
+                                    "category": {"type": "string"},
+                                    "storage_temperature": {"type": "string"},
+                                    "packaging": {"type": "string"}
                                 },
-                                "category": {"type": "string"},
-                                "storage_temperature": {"type": "string"},
-                                "packaging": {"type": "string"}
-                            },
-                            "required": ["name", "type", "category", "storage_temperature", "packaging", "amount"],
+                                "required": ["name", "type", "image_url", "category", "storage_temperature", "packaging", "amount"],
                                 "additionalProperties": false
+                            }
                         }
-                    }
-                },
-                "required": ["products"],
+                    },
+                    "required": ["products"],
                     "additionalProperties": false
-            },
-            "strict": true
+                },
+                "strict": true
+            }
         }
-    }
     }
 
 
