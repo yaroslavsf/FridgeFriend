@@ -54,7 +54,7 @@ const Profile = () => {
                 </View>
             </View>
 
-            <ScrollView>
+            <ScrollView className="min-h-screen">
 
                 <Pressable onPress={() => { router.navigate("Preferences") }}>
                     <View className="mt-5 ml-5 flex-row items-center justify-start w-full">
@@ -99,9 +99,6 @@ const Profile = () => {
                 </Pressable>
 
             </ScrollView>
-            <View className="flex-row items-center justify-between w-full mt-3">
-
-            </View>
         </View>
     );
 };
