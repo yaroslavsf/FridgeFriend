@@ -54,7 +54,9 @@ const Profile = () => {
                 </View>
             </View>
 
+            <AwardWidget successBarImg={SuccessBarImg} />
             <ScrollView className="min-h-screen">
+
 
                 <Pressable onPress={() => { router.navigate("Preferences") }}>
                     <View className="mt-5 ml-5 flex-row items-center justify-start w-full">
