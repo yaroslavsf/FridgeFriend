@@ -34,7 +34,7 @@ const initializeData = async () => {
     await AsyncStorage.setItem('foodData', JSON.stringify(sampleData));
 };
 
-const Index = () => {
+const index = () => {
     const [search, setSearch] = useState('');
     const [foodData, setFoodData] = useState([]);
 
@@ -114,4 +114,4 @@ const Index = () => {
     );
 }
 
-export default Index;
+export default index;
