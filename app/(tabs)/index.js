@@ -180,7 +180,6 @@ const index = () => {
     const [foodData, setFoodData] = useState([]);
 
     const {productIds} = useLocalSearchParams();
-    console.log(productIds, "productIds");
 
     useEffect(() => {
         const fetchData = async () => {
@@ -192,7 +191,6 @@ const index = () => {
                 }
                 if (productIds) {
                     const filteredData = JSON.parse(data).filter(item => productIds.includes(item.productId));
-                    console.log(filteredData,JSON.parse(data),  "filteredData");
                     setFoodData(filteredData);
                 } else {
                     setFoodData(JSON.parse(data));
