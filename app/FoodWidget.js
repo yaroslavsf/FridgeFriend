@@ -4,11 +4,11 @@ import Icon from 'react-native-vector-icons/Ionicons';
 
 const FoodWidget = ({ imageUrl, productName, expirationDate, location, isFavorite, onToggleFavorite }) => {
     return (
-        <View className="bg-white border border-gray-300 rounded-lg px-4 py-10 flex-row relative mx-5 my-2">
+        <View className="bg-white border border-gray-300 rounded-lg px-4 py-8 flex-row relative mx-8 my-2">
             {/* Image Section */}
             <Image
                 source={{ uri: imageUrl }}
-                className="w-24 h-24"
+                className="w-24 h-24 rounded-md"
             />
 
             {/* Details Section */}
