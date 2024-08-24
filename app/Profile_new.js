@@ -1,11 +1,11 @@
 import { Link } from 'expo-router';
 import React from 'react';
-import { View, Text, TouchableOpacity, Image, ScrollView, Pressable } from 'react-native';
+import { View, Text, TouchableOpacity, Image, ScrollView } from 'react-native';
 import { useRouter } from 'expo-router';
 import Icon from 'react-native-vector-icons/Ionicons';
 import SuccessBarImg from '../assets/SuccessBarImg.png';
-import { useState } from 'react';
-import { ModalItem } from './ModalItem';
+
+
 
 const Profile = () => {
     const router = useRouter();
@@ -56,18 +56,15 @@ const Profile = () => {
                     <Icon name="cube-outline" size={30} color="#000000" className="mr-2" />
                     <Text className="text-xl font-bold">Meine Produkte</Text>
                 </View>
-
+                
                 {/* Modal usage */}
-                <Pressable onPress={() => setDropdownVisible(!dropdownVisible)}>
-                    <View className="flex-row items-center justify-start w-full mt-5 ml-5">
-
+                <View className="flex-row items-center justify-start w-full mt-5 ml-5">
+                    <Pressable onPress={() => setDropdownVisible(!dropdownVisible)}>
                         <Icon name="navigate" size={30} color="#000000" className="mr-2" />
                         <Text className="text-xl font-bold">Standort</Text>
-
-                        
-                    </View>
+                    </Pressable>
                     <ModalItem visible={dropdownVisible} onClose={closeDropdown} options={options} />
-                </Pressable>
+                </View>
 
                 <View className="flex-row items-center justify-start w-full mt-5 ml-5">
                     <Icon name="settings" size={30} color="#000000" className="mr-2" />
