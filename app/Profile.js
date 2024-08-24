@@ -1,6 +1,6 @@
 import { Link } from 'expo-router';
 import React from 'react';
-import { View, Text, TouchableOpacity, Image } from 'react-native';
+import { View, Text, TouchableOpacity, Image, ScrollView } from 'react-native';
 import { useRouter } from 'expo-router';
 import Icon from 'react-native-vector-icons/Ionicons';
 import SuccessBarImg from '../assets/SuccessBarImg.png';
@@ -31,7 +31,7 @@ const Profile = () => {
                 </View>
             </View>
 
-            <View>
+            <ScrollView>
                 <View className="flex-row items-center justify-start w-full mt-5 ml-5">
                     <Icon name="heart" size={30} color="#AFE1AF" className="mr-2" />
                     <Text className="text-xl font-bold">Präferenzen</Text>
@@ -57,7 +57,7 @@ const Profile = () => {
                     <Text className="text-xl font-bold">Sprache</Text>
                 </View>
 
-            </View>
+            </ScrollView>
             <View className="flex-row items-center justify-between w-full mt-3">
 
             </View>
