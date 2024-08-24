@@ -6,6 +6,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import SuccessBarImg from '../assets/SuccessBarImg.png';
 import { useState } from 'react';
 import { ModalItem } from './ModalItem';
+import AwardWidget from './AwardWidget';
 
 const Profile = () => {
     const router = useRouter();
@@ -56,8 +57,6 @@ const Profile = () => {
 
             <AwardWidget successBarImg={SuccessBarImg} />
             <ScrollView className="min-h-screen">
-
-
                 <Pressable onPress={() => { router.navigate("Preferences") }}>
                     <View className="mt-5 ml-5 flex-row items-center justify-start w-full">
                         <Icon name="heart" size={30} color="#AFE1AF" className="mr-2" />
@@ -66,16 +65,18 @@ const Profile = () => {
                 </Pressable>
 
 
-
-                <View className="flex-row items-center justify-start w-full mt-5 ml-5">
-                    <Icon name="bag-handle-outline" size={30} color="#000000" className="mr-2" />
-                    <Text className="text-xl font-bold">Reservationen</Text>
-                </View>
-                <View className="flex-row items-center justify-start w-full mt-5 ml-5">
-                    <Icon name="cube-outline" size={30} color="#000000" className="mr-2" />
-                    <Text className="text-xl font-bold">Meine Produkte</Text>
-                </View>
-
+                <Pressable onPress={() => { router.navigate("Reservations") }}>
+                    <View className="flex-row items-center justify-start w-full mt-5 ml-5">
+                        <Icon name="bag-handle-outline" size={30} color="#000000" className="mr-2" />
+                        <Text className="text-xl font-bold">Reservationen</Text>
+                    </View>
+                </Pressable>
+                <Pressable onPress={() => { router.navigate("Products") }}>
+                    <View className="flex-row items-center justify-start w-full mt-5 ml-5">
+                        <Icon name="cube-outline" size={30} color="#000000" className="mr-2" />
+                        <Text className="text-xl font-bold">Meine Produkte</Text>
+                    </View>
+                </Pressable>
                 {/* Modal Location */}
                 <Pressable onPress={() => setDropdownVisibleLocation(!dropdownVisibleLocation)}>
                     <View className="flex-row items-center justify-start w-full mt-5 ml-5">
