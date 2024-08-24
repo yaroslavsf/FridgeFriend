@@ -74,9 +74,9 @@ const AddItem = () => {
     };
 
     return (
-        <>
+        <View className="flex-1 justify-center items-center bg-white">
             <HeaderWidget title="Add Item" className="z-50 pb-10 bg-white" />
-            <View className="flex-1 justify-center items-center">
+            <View className="flex-1 justify-center items-center bg-white">
                 <CameraView
                     animateShutter={false}
                     mute={true}
@@ -93,7 +93,7 @@ const AddItem = () => {
                 >
                     <View className="flex-1 flex-row bg-transparent m-40">
                         {isLoading ? (  // Show loader if isLoading is true
-                            <ActivityIndicator size="large" color="#ffffff" />
+                            <ActivityIndicator size="large" color="#white" />
                         ) : (
                             <TouchableOpacity className="flex-1 self-end items-center bg-slate-800 opacity-60 py-5 px-3 rounded-full" onPress={takePhoto}>
                                 <Text className="text-2xl font-bold text-white ">Take Photo</Text>
@@ -102,7 +102,7 @@ const AddItem = () => {
                     </View>
                 </CameraView>
             </View>
-        </>
+        </View>
     );
 };
 
