@@ -13,21 +13,21 @@ const initializeData = async () => {
             productName: "Vollmilch",
             expirationDate: "28.08.2024",
             location: "3012 Bern",
-            isFavorite: true
+            address: "Stockhornstrasse 22"
         },
         {
             imageUrl: "https://images.unsplash.com/photo-1549007953-2f2dc0b24019?q=80&w=3024&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
             productName: "Erdbeeren",
             expirationDate: "31.08.2024",
             location: "3006 Bern",
-            isFavorite: false
+            address: "Stockhornstrasse 22"
         },
         {
             imageUrl: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2972&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
             productName: "Hello World",
             expirationDate: "01.09.2024",
             location: "3012 Bern",
-            isFavorite: true
+            address: "Stockhornstrasse 22"
         }
     ];
 
@@ -58,21 +58,6 @@ const index = () => {
         setSearch(text);
     };
 
-    const toggleFavorite = async (productName) => {
-        const updatedData = foodData.map(item =>
-            item.productName === productName
-                ? { ...item, isFavorite: !item.isFavorite }
-                : item
-        );
-
-        try {
-            await AsyncStorage.setItem('foodData', JSON.stringify(updatedData));
-            setFoodData(updatedData); // Update state to trigger re-render
-        } catch (error) {
-            console.error("Failed to update data in AsyncStorage:", error);
-        }
-    };
-
     const filteredData = foodData.filter(item =>
         item.productName.toLowerCase().includes(search.toLowerCase())
     );
@@ -101,8 +86,7 @@ const index = () => {
                                 productName={item.productName}
                                 expirationDate={item.expirationDate}
                                 location={item.location}
-                                isFavorite={item.isFavorite}
-                                onToggleFavorite={() => toggleFavorite(item.productName)}
+                                address={item.address}
                             />
                         </View>
                     ))
