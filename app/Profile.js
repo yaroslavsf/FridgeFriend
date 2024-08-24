@@ -64,7 +64,7 @@ const Profile = () => {
                         <Icon name="navigate" size={30} color="#000000" className="mr-2" />
                         <Text className="text-xl font-bold">Standort</Text>
 
-                        
+
                     </View>
                     <ModalItem visible={dropdownVisible} onClose={closeDropdown} options={options} />
                 </Pressable>
