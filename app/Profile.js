@@ -83,10 +83,12 @@ const Profile = () => {
                     <ModalItem visible={dropdownVisibleLocation} onClose={closeDropdownLocation} options={optionsLocation} />
                 </Pressable>
 
-                <View className="flex-row items-center justify-start w-full mt-5 ml-5">
-                    <Icon name="settings" size={30} color="#000000" className="mr-2" />
-                    <Text className="text-xl font-bold">Kontoeinstellungen</Text>
-                </View>
+                <Pressable onPress={() => { router.navigate("Settings") }}>
+                    <View className="flex-row items-center justify-start w-full mt-5 ml-5">
+                        <Icon name="settings" size={30} color="#000000" className="mr-2" />
+                        <Text className="text-xl font-bold">Kontoeinstellungen</Text>
+                    </View>
+                </Pressable>
                 {/* Modal Location */}
                 <Pressable onPress={() => setDropdownVisibleLanguage(!dropdownVisibleLanguage)}>
                     <View className="flex-row items-center justify-start w-full mt-5 ml-5">
