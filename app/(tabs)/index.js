@@ -12,7 +12,7 @@ const initializeData = async () => {
     const sampleData = [
         {
             "imageUrl": "https://example.com/images/product1.jpg",
-            "productName": "Organic Apple Juice",
+            "productName": "Bio Öpfelsaft",  // Organic Apple Juice
             "expirationDate": "2024-10-05",
             "productId": "12345678",
             "location": "3012 Bern",
@@ -20,7 +20,7 @@ const initializeData = async () => {
         },
         {
             "imageUrl": "https://example.com/images/product2.jpg",
-            "productName": "Whole Wheat Bread",
+            "productName": "Vollkorn Brot",  // Whole Wheat Bread
             "expirationDate": "2024-11-15",
             "productId": "23456789",
             "location": "3012 Bern",
@@ -28,7 +28,7 @@ const initializeData = async () => {
         },
         {
             "imageUrl": "https://example.com/images/product3.jpg",
-            "productName": "Almond Milk",
+            "productName": "Mandelmilch",  // Almond Milk
             "expirationDate": "2024-09-22",
             "productId": "34567890",
             "location": "3012 Bern",
@@ -36,7 +36,7 @@ const initializeData = async () => {
         },
         {
             "imageUrl": "https://example.com/images/product4.jpg",
-            "productName": "Granola Bars",
+            "productName": "Granola Riegel",  // Granola Bars
             "expirationDate": "2024-08-30",
             "productId": "45678901",
             "location": "3012 Bern",
@@ -44,7 +44,7 @@ const initializeData = async () => {
         },
         {
             "imageUrl": "https://example.com/images/product5.jpg",
-            "productName": "Greek Yogurt",
+            "productName": "Griechisches Jogurt",  // Greek Yogurt
             "expirationDate": "2024-12-12",
             "productId": "56789012",
             "location": "3012 Bern",
@@ -52,7 +52,7 @@ const initializeData = async () => {
         },
         {
             "imageUrl": "https://example.com/images/product6.jpg",
-            "productName": "Dark Chocolate",
+            "productName": "Dunkle Schoggi",  // Dark Chocolate
             "expirationDate": "2024-11-08",
             "productId": "67890123",
             "location": "3012 Bern",
@@ -60,7 +60,7 @@ const initializeData = async () => {
         },
         {
             "imageUrl": "https://example.com/images/product7.jpg",
-            "productName": "Avocado Oil",
+            "productName": "Avocado Öl",  // Avocado Oil
             "expirationDate": "2024-10-27",
             "productId": "78901234",
             "location": "3012 Bern",
@@ -68,7 +68,7 @@ const initializeData = async () => {
         },
         {
             "imageUrl": "https://example.com/images/product8.jpg",
-            "productName": "Quinoa Pasta",
+            "productName": "Quinoa Pasta",  // Quinoa Pasta
             "expirationDate": "2024-09-15",
             "productId": "89012345",
             "location": "3012 Bern",
@@ -76,7 +76,7 @@ const initializeData = async () => {
         },
         {
             "imageUrl": "https://example.com/images/product9.jpg",
-            "productName": "Honey Oats Cereal",
+            "productName": "Honig-Hafer Müesli",  // Honey Oats Cereal
             "expirationDate": "2024-12-01",
             "productId": "90123456",
             "location": "3012 Bern",
@@ -84,7 +84,7 @@ const initializeData = async () => {
         },
         {
             "imageUrl": "https://example.com/images/product10.jpg",
-            "productName": "Chia Seeds",
+            "productName": "Chia Samen",  // Chia Seeds
             "expirationDate": "2024-08-15",
             "productId": "01234567",
             "location": "3012 Bern",
@@ -92,7 +92,7 @@ const initializeData = async () => {
         },
         {
             "imageUrl": "https://example.com/images/product11.jpg",
-            "productName": "Coconut Water",
+            "productName": "Kokoswasser",  // Coconut Water
             "expirationDate": "2024-09-10",
             "productId": "11234567",
             "location": "3012 Bern",
@@ -100,7 +100,7 @@ const initializeData = async () => {
         },
         {
             "imageUrl": "https://example.com/images/product12.jpg",
-            "productName": "Peanut Butter",
+            "productName": "Erdnussbutter",  // Peanut Butter
             "expirationDate": "2024-10-20",
             "productId": "21234567",
             "location": "3012 Bern",
@@ -108,7 +108,7 @@ const initializeData = async () => {
         },
         {
             "imageUrl": "https://example.com/images/product13.jpg",
-            "productName": "Whole Grain Rice",
+            "productName": "Vollkorn Reis",  // Whole Grain Rice
             "expirationDate": "2024-12-31",
             "productId": "31234567",
             "location": "3012 Bern",
@@ -116,7 +116,7 @@ const initializeData = async () => {
         },
         {
             "imageUrl": "https://example.com/images/product14.jpg",
-            "productName": "Organic Almonds",
+            "productName": "Bio Mandeln",  // Organic Almonds
             "expirationDate": "2024-11-05",
             "productId": "41234567",
             "location": "3012 Bern",
@@ -124,7 +124,7 @@ const initializeData = async () => {
         },
         {
             "imageUrl": "https://example.com/images/product15.jpg",
-            "productName": "Green Tea",
+            "productName": "Grüner Tee",  // Green Tea
             "expirationDate": "2024-09-25",
             "productId": "51234567",
             "location": "3012 Bern",
@@ -132,7 +132,7 @@ const initializeData = async () => {
         },
         {
             "imageUrl": "https://example.com/images/product16.jpg",
-            "productName": "Sunflower Seeds",
+            "productName": "Sunnenblueme Chärnli",  // Sunflower Seeds
             "expirationDate": "2024-10-15",
             "productId": "61234567",
             "location": "3012 Bern",
@@ -140,7 +140,7 @@ const initializeData = async () => {
         },
         {
             "imageUrl": "https://example.com/images/product17.jpg",
-            "productName": "Vegetable Chips",
+            "productName": "Gmües Chips",  // Vegetable Chips
             "expirationDate": "2024-12-20",
             "productId": "71234567",
             "location": "3012 Bern",
@@ -148,7 +148,7 @@ const initializeData = async () => {
         },
         {
             "imageUrl": "https://example.com/images/product18.jpg",
-            "productName": "Cashew Butter",
+            "productName": "Cashewbutter",  // Cashew Butter
             "expirationDate": "2024-08-28",
             "productId": "81234567",
             "location": "3012 Bern",
@@ -156,7 +156,7 @@ const initializeData = async () => {
         },
         {
             "imageUrl": "https://example.com/images/product19.jpg",
-            "productName": "Organic Tomato Sauce",
+            "productName": "Bio Tomatensauce",  // Organic Tomato Sauce
             "expirationDate": "2024-09-18",
             "productId": "91234567",
             "location": "3012 Bern",
@@ -164,13 +164,14 @@ const initializeData = async () => {
         },
         {
             "imageUrl": "https://example.com/images/product20.jpg",
-            "productName": "Brown Rice Syrup",
+            "productName": "Brauner Reissirup",  // Brown Rice Syrup
             "expirationDate": "2024-11-29",
             "productId": "10234567",
             "location": "3012 Bern",
             "address": "Laupenstrasse 14"
         }
     ];
+
 
     await AsyncStorage.setItem('foodData', JSON.stringify(sampleData));
 };

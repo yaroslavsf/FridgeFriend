@@ -24,7 +24,7 @@ export const analyzeImageWithStructuredOutput = async (products, type, model = "
             "content": [
                 {
                     "type": "text",
-                    "text": `Please give me a list of recipes that can be made with the following format: ${format}, products (any of them): ${JSON.stringify(products)} and the type of dish is ${type}`
+                    "text": `Please give me a list of recipes that can be made with the following format: ${format}, products (any of them): ${JSON.stringify(products)} and the type of dish is ${type}, give me the result in Swiss German language`
                 }
             ]
         }],
