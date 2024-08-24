@@ -4,6 +4,7 @@ import { Text, View, TextInput, ScrollView } from "react-native";
 import Icon from 'react-native-vector-icons/Ionicons';
 import FoodWidget from "../FoodWidget";
 import HeaderWidget from "../HeaderWidget";
+import * as SecureStore from "expo-secure-store";
 
 
 const index = () => {
@@ -55,4 +56,4 @@ const index = () => {
     );
 }
 
-export default index; 
+export default index;
