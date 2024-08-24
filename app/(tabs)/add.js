@@ -4,6 +4,7 @@ import { CameraView, useCameraPermissions } from 'expo-camera';
 import { useNavigation } from '@react-navigation/native';
 import HeaderWidget from "../HeaderWidget";
 import axios from 'axios';
+import {analyzeImageWithStructuredOutput} from "../../api/open_ai/stuctured_image_output";
 
 const AddItem = () => {
     const [facing, setFacing] = useState('back');
@@ -43,7 +44,7 @@ const AddItem = () => {
             const options = { quality: 0.5, base64: true, skipProcessing: false };
             const newPhoto = await cameraRef.current.takePictureAsync(options);
             setPhoto(newPhoto);
-            handlePhotoUpload(newPhoto);
+            handlePhotoUpload(newPhoto.uri);
         }
     };
 
@@ -51,31 +52,22 @@ const AddItem = () => {
 
         console.log('Uploading photo:', newPhoto);
 
-        try {
-            let formData = new FormData();
-            formData.append('photo', {
-                uri: newPhoto.uri,
-                name: 'photo.jpg',
-                type: 'image/jpg',
-            });
+        // try {
+            const response = await analyzeImageWithStructuredOutput(newPhoto);
 
-            // const response = await axios.post('https://your-api-endpoint.com/upload', formData, {
-            //     headers: {
-            //         'Content-Type': 'multipart/form-data',
-            //     },
-            // });
+            console.log('Upload success:', JSON.stringify(response));
 
-            // console.log('Upload success:', response.data);
-
-        } catch (error) {
-            console.error('Upload failed:', error);
-        }
+        // } catch (error) {
+        //     console.error('Upload failed:', error);
+        // }
     };
 
     return (
         <View style={styles.container}>
             <HeaderWidget title="Scanne deinen Kühlschrank!" />
             <CameraView
+                animateShutter={false}
+                mute={true}
                 style={styles.camera}
                 type={facing}
                 ref={cameraRef}

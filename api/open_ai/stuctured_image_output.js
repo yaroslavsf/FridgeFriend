@@ -1,7 +1,9 @@
 import * as FileSystem from 'expo-file-system';
 import axios from "axios";
+
 import {instance} from "./api_config";
 
+const apiKey = process.env.OPEN_AI_KEY;
 
 const encodeImage = async (imageUri) => {
     try {
@@ -18,65 +20,89 @@ const encodeImage = async (imageUri) => {
     }
 };
 
+const format = {
+    "name": "The name of the detected item (e.g., Apple, Milk).",
+    "type": "The category of the item, such as fruit, vegetable, meat, dairy, etc.",
+    "amount": {
+        "quantity": "The number of items or the volume of the item (e.g., 5, 1).",
+        "unit": "The unit of measurement for the quantity (e.g., pieces, liters, grams)."
+    },
+    "category": "A broader classification, such as 'fresh', 'frozen', 'canned', etc.",
+    "storage_temperature": "The optimal temperature at which the item should be stored (e.g., 4°C).",
+    "packaging": "The type of packaging the item is in (e.g., loose, carton, plastic).",
+}
+
 export const analyzeImageWithStructuredOutput = async (image, model = "gpt-4o-mini") => {
 
-    const encodedImage = await encodeImage(image);
+    const encodedImage= await encodeImage(image);
 
     const data = {
-        model: "gpt-4o-2024-08-06",
-        messages: [
-            {
-                role: "system",
-                content: "You are a helpful math tutor. Guide the user through the solution step by step."
-            },
-            {
-                "type": "text",
-                "text": "Please describe each product in this image and give result is the following format: " + str(format)
-            },
-            {
-                "type": "image_url",
-                "image_url": {
-                    "url": `data:image/jpeg;base64,${encodedImage}`
-                }
-            }
-        ],
-        response_format: {
-            type: "json_schema",
-            json_schema: {
-                name: "math_reasoning",
-                schema: {
-                    type: "object",
-                    properties: {
-                        steps: {
-                            type: "array",
-                            items: {
-                                type: "object",
-                                properties: {
-                                    explanation: { type: "string" },
-                                    output: { type: "string" }
-                                },
-                                required: ["explanation", "output"],
-                                additionalProperties: false
-                            }
-                        },
-                        final_answer: { type: "string" }
-                    },
-                    required: ["steps", "final_answer"],
-                    additionalProperties: false
+        "model": "gpt-4o-mini", "messages": [{
+            "role": "user",
+            "content": [
+                {
+                    "type": "text",
+                    "text": `Please describe each product in this image and give result is the following format: ${format}`
                 },
-                strict: true
-            }
+                {
+                    "type": "image_url",
+                    "image_url": {
+                        "url": `data:image/jpeg;base64,${encodedImage}`
+                    }
+                },
+            ]
+        }],
+        "response_format": {
+        "type": "json_schema",
+            "json_schema": {
+            "name": "product_description",
+                "schema": {
+                "type": "object",
+                    "properties": {
+                    "products": {
+                        "type": "array",
+                            "items": {
+                            "type": "object",
+                                "properties": {
+                                "name": {"type": "string"},
+                                "type": {"type": "string"},
+                                "amount": {
+                                    "type": "object",
+                                        "properties": {"quantity": {"type": "string"}, "unit": {"type": "string"}},
+                                    "required": ["quantity", "unit"],
+                                        "additionalProperties": false
+                                },
+                                "category": {"type": "string"},
+                                "storage_temperature": {"type": "string"},
+                                "packaging": {"type": "string"}
+                            },
+                            "required": ["name", "type", "category", "storage_temperature", "packaging", "amount"],
+                                "additionalProperties": false
+                        }
+                    }
+                },
+                "required": ["products"],
+                    "additionalProperties": false
+            },
+            "strict": true
         }
     }
-
-    try {
-        const result = await instance.post('', data, );
-
-        return result.data;
-    } catch (error) {
-        console.error('Error making API request:', error);
-        return({ error: 'Failed to fetch data' });
     }
+
+
+    const result = axios.post('https://api.openai.com/v1/chat/completions', JSON.stringify(data), {
+        headers: {
+            'Authorization': `Bearer ${apiKey}`,
+            'Content-Type': 'application/json'
+        }
+    }).then((response) => {
+        console.log(JSON.stringify(response.data), "RESPONSE");
+    }).catch((error) => {
+        console.log(JSON.stringify(error), "ERROR");
+
+        console.log(JSON.stringify(result));
+        return result.data;
+    })
 
 
 }
