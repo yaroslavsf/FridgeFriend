@@ -64,16 +64,18 @@ const Profile = () => {
                 </Pressable>
 
 
-
-                <View className="flex-row items-center justify-start w-full mt-5 ml-5">
-                    <Icon name="bag-handle-outline" size={30} color="#000000" className="mr-2" />
-                    <Text className="text-xl font-bold">Reservationen</Text>
-                </View>
-                <View className="flex-row items-center justify-start w-full mt-5 ml-5">
-                    <Icon name="cube-outline" size={30} color="#000000" className="mr-2" />
-                    <Text className="text-xl font-bold">Meine Produkte</Text>
-                </View>
-
+                <Pressable onPress={() => { router.navigate("Reservations") }}>
+                    <View className="flex-row items-center justify-start w-full mt-5 ml-5">
+                        <Icon name="bag-handle-outline" size={30} color="#000000" className="mr-2" />
+                        <Text className="text-xl font-bold">Reservationen</Text>
+                    </View>
+                </Pressable>
+                <Pressable onPress={() => { router.navigate("Products") }}>
+                    <View className="flex-row items-center justify-start w-full mt-5 ml-5">
+                        <Icon name="cube-outline" size={30} color="#000000" className="mr-2" />
+                        <Text className="text-xl font-bold">Meine Produkte</Text>
+                    </View>
+                </Pressable>
                 {/* Modal Location */}
                 <Pressable onPress={() => setDropdownVisibleLocation(!dropdownVisibleLocation)}>
                     <View className="flex-row items-center justify-start w-full mt-5 ml-5">
