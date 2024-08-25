@@ -1,8 +1,10 @@
+import { useRouter } from 'expo-router';
 import React, { useState, useRef, useEffect } from 'react';
 import { View, Text, Image, TouchableOpacity, Pressable, Animated, Easing } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 const FoodWidget = ({ imageUrl, productName, expirationDate, location, address }) => {
+    const router = useRouter()
     const [expanded, setExpanded] = useState(false);
     const heightAnim = useRef(new Animated.Value(96)).current; // Initial height value (collapsed)
     const opacityAnim = useRef(new Animated.Value(0)).current; // Initial opacity value for the button
@@ -94,7 +96,7 @@ const FoodWidget = ({ imageUrl, productName, expirationDate, location, address }
                     }}
                     className="p-3 mt-3 rounded-full"
                 >
-                    <TouchableOpacity onPress={() => alert('Button Pressed')}>
+                    <TouchableOpacity onPress={() => router.navigate('MakeReservation')}>
                         <Text className="ml-3 text-white text-lg">Reservieren</Text>
                     </TouchableOpacity>
                 </Animated.View>
