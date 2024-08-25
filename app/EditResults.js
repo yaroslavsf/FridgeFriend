@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, Text, TouchableOpacity, Image, ScrollView, Button } from 'react-native';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import { Link, useLocalSearchParams } from 'expo-router';
@@ -14,7 +14,7 @@ const EditResults = () => {
 
     // State to store selected expiration dates
     const [expirationDates, setExpirationDates] = useState({});
-
+    
     // Handler for date selection
     const onDateChange = (event, selectedDate, productName) => {
         const currentDate = selectedDate || expirationDates[productName];
@@ -23,6 +23,10 @@ const EditResults = () => {
             [productName]: currentDate,
         }));
     };
+
+    useEffect(() => {
+        console.log(products)
+    }, [])
 
     return (
         <>

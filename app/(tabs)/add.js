@@ -3,7 +3,7 @@ import { Button, StyleSheet, Text, TouchableOpacity, View, ActivityIndicator } f
 import { CameraView, useCameraPermissions } from 'expo-camera';
 import { useNavigation } from '@react-navigation/native';
 import HeaderWidget from "../HeaderWidget";
-import { analyzeImageWithStructuredOutput } from "../../api/open_ai/stuctured_image_output";
+import { analyzeImageWithStructuredOutput, getProductsImagesByPhoto } from "../../api/open_ai/stuctured_image_output";
 import { useRouter } from "expo-router";
 
 const AddItem = () => {
@@ -56,12 +56,22 @@ const AddItem = () => {
 
         try {
             analyzeImageWithStructuredOutput(newPhoto).then((response) => {
-                console.log('Upload success:', JSON.stringify(response.data));
-                setIsLoading(false);  // Hide loader after the process is complete
-                router.push({
-                    pathname: "../EditResults",
-                    params: { response: JSON.stringify(response.data) }
-                });
+                // console.log('Upload success:', JSON.stringify(response.data));
+                
+                getProductsImagesByPhoto(newPhoto, response.data)
+                .then((e) => {
+                    console.log("ZHYCY")
+                })
+                .catch((e) => {
+                    console.error(e)
+                })
+
+                // console.log("pochemy")
+                // setIsLoading(false);  // Hide loader after the process is complete
+                // router.push({
+                //     pathname: "../EditResults",
+                //     params: { response: JSON.stringify(response.data) }
+                // });
             });
 
 
