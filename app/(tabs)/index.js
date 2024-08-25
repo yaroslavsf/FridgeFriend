@@ -7,7 +7,7 @@ import HeaderWidget from "../HeaderWidget";
 import { useLocalSearchParams, useRouter } from "expo-router";
 
 // Initialize data if not present
-const initializeData = async () => {
+export const initializeData = async () => {
 
     const sampleData = [
         {
