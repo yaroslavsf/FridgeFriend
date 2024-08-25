@@ -44,7 +44,7 @@ const AwardWidget = ({ successBarImg }) => {
                     <View className="ml-4 items-center w-full">
                         <View className="flex-row items-center justify-start w-full">
                             <Icon name="trophy" size={30} color="black" />
-                            <Text className="text-3xl font-bold ml-5">Mini Erfoulg</Text>
+                            <Text className="text-3xl font-bold ml-5">Meine Erfolge</Text>
                         </View>
                         <View className="w-full items-center justify-center my-0 h-32">
                             <Image source={successBarImg} className="w-11/12" resizeMode="contain" />
