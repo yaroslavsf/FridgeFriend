@@ -11,6 +11,19 @@ const initializeData = async () => {
 
     const sampleData = [
         {
+            imageUrl: "https://images.unsplash.com/photo-1522193128704-bcb76544ba8d?q=80&w=3125&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            productName: "Eier (5x)",
+            expirationDate: "01.09.2024",
+            location: "3010 Bern",
+            address: "Stockhornstrasse 22"
+        },
+        {
+            imageUrl: "https://images.unsplash.com/photo-1550583724-b2692b85b150?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            productName: "Vollmilch",
+            expirationDate: "28.08.2024",
+            location: "3012 Bern",
+            address: "Stockhornstrasse 22"
+        },
             "imageUrl": "https://example.com/images/product1.jpg",
             "productName": "Bio Öpfelsaft",  // Organic Apple Juice
             "expirationDate": "2024-10-05",
@@ -99,6 +112,12 @@ const initializeData = async () => {
             "address": "Zytgloggelaube 8"
         },
         {
+            imageUrl: "https://images.unsplash.com/photo-1668548205372-1becd11b5641?q=80&w=2970&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            productName: "Erbsen",
+            expirationDate: "01.09.2024",
+            location: "3010 Bern",
+            address: "Stockhornstrasse 22"
+        },
             "imageUrl": "https://example.com/images/product12.jpg",
             "productName": "Erdnussbutter",  // Peanut Butter
             "expirationDate": "2024-10-20",
@@ -214,10 +233,10 @@ const index = () => {
     return (
         <View className="flex-1 justify-center items-center bg-white">
             <HeaderWidget title="3011 Bern" />
-            <View style={{ flexDirection: 'row', alignItems: 'center', backgroundColor: '#769C65', borderColor: 'gray', borderWidth: 1, borderRadius: 25, paddingHorizontal: 10, paddingVertical: 8, margin: 10 }}>
+            <View style={{ flexDirection: 'row', alignItems: 'center', backgroundColor: '#769C65', borderColor: 'gray', borderWidth: 1, borderRadius: 25, paddingHorizontal: 10, paddingVertical: 8, margin: 25 }}>
                 <Icon name="search" size={20} color="white" />
                 <TextInput
-                    style={{ flex: 1, marginLeft: 10 }}
+                    style={{ flex: 1 }}
                     placeholderTextColor="white"
                     className="text-white"
                     placeholder="Suche..."

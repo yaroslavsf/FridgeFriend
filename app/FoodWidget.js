@@ -44,7 +44,7 @@ const FoodWidget = ({ imageUrl, productName, expirationDate, location, address }
                 style={{
                     height: heightAnim, // Animated height
                 }}
-                className="bg-white border border-gray-300 rounded-lg px-4 py-8 mx-8 my-2"
+                className="bg-white border border-gray-500 rounded-lg px-4 py-8 mx-8 my-2"
             >
                 {/* Image Section */}
                 <View className="flex-row">

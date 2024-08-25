@@ -67,7 +67,8 @@ const explore = () => {
                 <>
                     < HeaderWidget title="Rezeptbuch" />
                     <ScrollView className="w-full">
-                        <View className="mb-4 mx-4 mt-8">
+                        <View className="mb-4 mx-5">
+                            <Text className="text-lg mb-2">Lasse dir von unserer AI Rezepte generieren mit Zutaten aus deiner Umgebung.</Text>
                             <Text className="text-lg font-semibold mb-2">Art</Text>
                             <View className="flex-row flex-wrap justify-start">
                                 <TouchableOpacity
