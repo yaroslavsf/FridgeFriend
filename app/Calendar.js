@@ -19,7 +19,6 @@ const CalendarComponent = () => {
 
         const formatted = `${day}.${month}.${year}`;
         setFormattedDate(formatted);
-        console.log('Selected Date:', formatted);
     };
 
     return (

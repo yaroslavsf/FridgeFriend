@@ -5,29 +5,35 @@ import { Video } from 'expo-av';
 import CookingAnimation from "../../assets/CookingAnimation.mp4";
 import Icon from 'react-native-vector-icons/Ionicons';
 import { useNavigation } from '@react-navigation/native';
+import {analyzeImageWithStructuredOutput} from "../../api/open_ai/structured_recipe_output";
+import RecipeScreen from "../DetailedRecipe";
+import {useRouter} from "expo-router";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const explore = () => {
     const [mealType, setMealType] = useState("🍳 Frühstück");
     const [difficulty, setDifficulty] = useState("🤩 Einfach");
     const [radius, setRadius] = useState("🚶 >500m");
     const [slide, setSlide] = useState(0);
+    const [AiRecipes, setAiRecipes] = useState([]);
+    const [sampleData, setSampleData] = useState([]);
     const navigation = useNavigation();
 
-    // example prompt: Ich habe [ingredients]. Welche Rezepte kann man erstellen die diese Zutaten enthalten? Bitte gebe mir als Antwort eine Antwort auf Schweizerdeutsch im Format als Array: 
+    // example prompt: Ich habe [ingredients]. Welche Rezepte kann man erstellen die diese Zutaten enthalten? Bitte gebe mir als Antwort eine Antwort auf Schweizerdeutsch im Format als Array:
 
+    const router = useRouter();
 
-    const ai_recipes = [
-        {
-            "title": "Tomaten-Peperoni-Salat",
-            "instruction": "Tomaten und Peperoni in Würfeli schniide. Mit Olivenöl, Balsamico, Salz und Pfeffer würze. Am Schluss paar Basilikumblätter drüberstreue.",
-            "ingredientsNearby": ["Tomaten", "Peperoni"]
-        },
-        {
-            "title": "Peperoni-Tomaten-Pasta",
-            "instruction": "Peperoni und Tomaten in Streife schniide und mit Knobli anbrötele. Mit Pasta vermische und Parmesan drüberstreue.",
-            "ingredientsNearby": ["Tomaten", "Peperoni"]
-        }
-    ];
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                let data = await AsyncStorage.getItem('foodData');
+                setSampleData(JSON.parse(data));
+            } catch (error) {
+                console.error("Failed to fetch data from AsyncStorage:", error);
+            }
+        };
+        fetchData();
+    }, [])
 
     const handleMealTypeChange = (type) => {
         setMealType(type);
@@ -40,13 +46,14 @@ const explore = () => {
     const handleRadiusChange = (range) => {
         setRadius(range);
     };
-
     const handleSubmit = () => {
         setSlide(1);
         // wait 5 seconds then switch to slide 2
-        setTimeout(() => {
+        analyzeImageWithStructuredOutput(sampleData, mealType).then((response) => {
+            setAiRecipes(JSON.parse(response.data["choices"][0]["message"]["content"])["recipes"])
             setSlide(2);
-        }, 5000);
+
+        })
     };
 
     const buttonStyle = "text-white py-2 px-4 m-2 rounded-full text-center";
@@ -215,17 +222,28 @@ const explore = () => {
                             </View>
                         </View>
 
-                        {ai_recipes.map((recipe, index) => (
-                            <View className="bg-white border border-gray-300 rounded-lg px-4 pt-3 pb-8 mx-8 my-2" key={index}>
+                        {AiRecipes.map((recipe, index) => (
+                            <TouchableOpacity onPress={() => {
+                                router.push({
+                                    pathname: "../DetailedRecipe",
+                                    params: { data: JSON.stringify(recipe) }
+                                });
+                            }} className="bg-white border border-gray-300 rounded-lg px-4 pt-3 pb-8 mx-8 my-2" key={index}>
                                 <View className="flex-row">
                                     <View className=" flex-1">
-                                        <Text className="text-xl font-bold">{recipe.title}</Text>
-                                        <Text className="text-gray-500 text-lg ">Zutaten: {recipe.ingredientsNearby.join(", ")}</Text>
+                                        <Text className="text-xl font-bold">{recipe.name}</Text>
+                                        {/*<Text className="text-gray-500 text-lg ">Zutaten: {recipe.ingredientsNearby.join(", ")}</Text>*/}
                                     </View>
                                 </View>
                                 <View>
                                     <Text className="text-lg text-black font-bold w-full mt-5">Anleitung</Text>
-                                    <Text className="text-lg text-black bg-blue w-full mt-2">{recipe.instruction}</Text>
+                                    <Text className="text-lg text-black bg-blue w-full mt-2">{recipe.description}</Text>
+                                </View>
+                                <View>
+                                    <Text className="text-lg text-black font-bold w-full mt-5">Anleitung</Text>
+                                    {recipe.products.map((product, index) => {
+                                        return <Text>{product.productName}</Text>
+                                    })}
                                 </View>
                                 <TouchableOpacity
                                     className="bg-blue-500 text-white rounded-lg mt-5 w-full py-5"
@@ -234,7 +252,7 @@ const explore = () => {
                                     <Text className="text-center w-full text-white">Bestäue</Text>
                                 </TouchableOpacity>
 
-                            </View>
+                            </TouchableOpacity>
                         ))}
 
                     </ScrollView>
