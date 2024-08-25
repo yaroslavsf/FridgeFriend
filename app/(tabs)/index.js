@@ -4,12 +4,26 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import Icon from 'react-native-vector-icons/Ionicons';
 import FoodWidget from "../FoodWidget";
 import HeaderWidget from "../HeaderWidget";
-import {useLocalSearchParams, useRouter} from "expo-router";
+import { useLocalSearchParams, useRouter } from "expo-router";
 
 // Initialize data if not present
 const initializeData = async () => {
 
     const sampleData = [
+        {
+            imageUrl: "https://images.unsplash.com/photo-1522193128704-bcb76544ba8d?q=80&w=3125&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            productName: "Eier (5x)",
+            expirationDate: "01.09.2024",
+            location: "3010 Bern",
+            address: "Stockhornstrasse 22"
+        },
+        {
+            imageUrl: "https://images.unsplash.com/photo-1550583724-b2692b85b150?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            productName: "Vollmilch",
+            expirationDate: "28.08.2024",
+            location: "3012 Bern",
+            address: "Stockhornstrasse 22"
+        },
         {
             "imageUrl": "https://images.unsplash.com/photo-1534336810865-0beae4c81278?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w2NDY4NTJ8MHwxfHNlYXJjaHwxfHxPcmdhbmljJTIwQXBwbGUlMjBKdWljZXxlbnwwfHx8fDE3MjQ1NDY1Nzd8MA&ixlib=rb-4.0.3&q=80&w=400",
             "productName": "Bio Öpfelsaft",  // Organic Apple Juice
@@ -180,7 +194,7 @@ const index = () => {
     const [search, setSearch] = useState('');
     const [foodData, setFoodData] = useState([]);
 
-    const {productIds} = useLocalSearchParams();
+    const { productIds } = useLocalSearchParams();
 
     useEffect(() => {
         const fetchData = async () => {
@@ -214,10 +228,10 @@ const index = () => {
     return (
         <View className="flex-1 justify-center items-center bg-white">
             <HeaderWidget title="3011 Bern" />
-            <View style={{ flexDirection: 'row', alignItems: 'center', backgroundColor: '#769C65', borderColor: 'gray', borderWidth: 1, borderRadius: 25, paddingHorizontal: 10, paddingVertical: 8, margin: 10 }}>
+            <View style={{ flexDirection: 'row', alignItems: 'center', backgroundColor: '#769C65', borderColor: 'gray', borderWidth: 1, borderRadius: 25, paddingHorizontal: 10, paddingVertical: 8, margin: 25 }}>
                 <Icon name="search" size={20} color="white" />
                 <TextInput
-                    style={{ flex: 1, marginLeft: 10 }}
+                    style={{ flex: 1 }}
                     placeholderTextColor="white"
                     className="text-white"
                     placeholder="Suche..."
