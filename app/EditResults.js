@@ -20,7 +20,7 @@ const EditResults = () => {
                     const response = await unsplash_image(product.name);
                     return {
                         ...product,
-                        imageUrl: response.data.results[0]?.urls.small || "https://via.placeholder.com/150"
+                        imageUrl: response.data.results[3]?.urls.raw || "https://via.placeholder.com/150"
                     };
                 } catch (error) {
                     console.error("Error fetching image:", error);
@@ -63,12 +63,12 @@ const EditResults = () => {
                                 <Image source={{ uri: product.imageUrl }} style={{ width: 100, height: 100, marginTop: 10 }} />
                                 {/* Date Picker */}
                                 <View style={{ marginTop: 20, marginBottom: 30, flexDirection: 'row', alignItems: 'center' }}>
-                                    <Text style={{ marginRight: 10 }}>Ablaufdatum wähle:</Text>
+                                    <Text style={{ marginRight: 10 }}>Ablaufdatum wählen:</Text>
                                     <CalendarComponent onDateChange={(event, selectedDate) => onDateChange(event, selectedDate, product.name)} />
                                 </View>
                                 {/* Save button */}
                                 <TouchableOpacity style={{ backgroundColor: '#769C65', padding: 20, borderRadius: 8 }}>
-                                    <Text style={{ color: 'white', textAlign: 'center' }}>Spichere</Text>
+                                    <Text style={{ color: 'white', textAlign: 'center' }}>Speichern</Text>
                                 </TouchableOpacity>
                             </View>
                         );
