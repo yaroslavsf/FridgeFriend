@@ -5,9 +5,9 @@ import { Video } from 'expo-av';
 import CookingAnimation from "../../assets/CookingAnimation.mp4";
 import Icon from 'react-native-vector-icons/Ionicons';
 import { useNavigation } from '@react-navigation/native';
-import {analyzeImageWithStructuredOutput} from "../../api/open_ai/structured_recipe_output";
+import { analyzeImageWithStructuredOutput } from "../../api/open_ai/structured_recipe_output";
 import RecipeScreen from "../DetailedRecipe";
-import {useRouter} from "expo-router";
+import { useRouter } from "expo-router";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const explore = () => {
@@ -266,7 +266,7 @@ const explore = () => {
                                 <View>
                                     <Text className="text-lg text-black font-bold w-full mt-5">Anleitung</Text>
                                     {recipe.products.map((product, index) => {
-                                        return <Text>{product.productName}</Text>
+                                        return <Text key={index}>{product.productName}</Text>
                                     })}
                                 </View>
                                 <TouchableOpacity

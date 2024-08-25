@@ -40,16 +40,16 @@ export const analyzeImageWithStructuredOutput = async (products, type, model = "
                             "items": {
                                 "type": "object",
                                 "properties": {
-                                    "name": {"type": "string"},
-                                    "description": {"type": "string"},
-                                    "image_url": {"type": "string"},
+                                    "name": { "type": "string" },
+                                    "description": { "type": "string" },
+                                    "image_url": { "type": "string" },
                                     "products": {
                                         "type": "array",
                                         "items": {
                                             "type": "object",
                                             "properties": {
-                                                "productId": {"type": "string"},
-                                                "productName": {"type": "string"}
+                                                "productId": { "type": "string" },
+                                                "productName": { "type": "string" }
                                             },
                                             "required": ["productId", "productName"],
                                             "additionalProperties": false
@@ -60,9 +60,9 @@ export const analyzeImageWithStructuredOutput = async (products, type, model = "
                                         "items": {
                                             "type": "object",
                                             "properties": {
-                                                "name": {"type": "string"},
-                                                "quantity": {"type": "string"},
-                                                "unit": {"type": "string"}
+                                                "name": { "type": "string" },
+                                                "quantity": { "type": "string" },
+                                                "unit": { "type": "string" }
                                             },
                                             "required": ["name", "quantity", "unit"],
                                             "additionalProperties": false
