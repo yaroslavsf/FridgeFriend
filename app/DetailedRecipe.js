@@ -5,7 +5,7 @@ import {router, useLocalSearchParams, useRouter} from "expo-router";
 const DetailedRecipe = () => {
     const {data} = useLocalSearchParams();
     // Accessing the data passed through route params
-    const { imageUrl, name, description, ingredients, products } = JSON.parse(data);
+    const {  name, description, ingredients, products, image_url } = JSON.parse(data);
 
     const router = useRouter();
 
@@ -24,7 +24,7 @@ const DetailedRecipe = () => {
         <View style={styles.container}>
             <Text style={styles.title}>Dein Rezept</Text>
             <View style={styles.recipeContainer}>
-                <Image source={{ uri: imageUrl }} style={styles.image} />
+                <Image source={{ uri: image_url }} style={styles.image} />
                 <Text style={styles.recipeName}>{name}</Text>
                 <Text style={styles.description}>{description}</Text>
                 <View style={styles.ingredientsContainer}>
