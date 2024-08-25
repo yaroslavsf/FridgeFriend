@@ -4,7 +4,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import Icon from 'react-native-vector-icons/Ionicons';
 import FoodWidget from "../FoodWidget";
 import HeaderWidget from "../HeaderWidget";
-import {useLocalSearchParams, useRouter} from "expo-router";
+import { useLocalSearchParams, useRouter } from "expo-router";
 
 // Initialize data if not present
 const initializeData = async () => {
@@ -24,6 +24,7 @@ const initializeData = async () => {
             location: "3012 Bern",
             address: "Stockhornstrasse 22"
         },
+        {
             "imageUrl": "https://example.com/images/product1.jpg",
             "productName": "Bio Öpfelsaft",  // Organic Apple Juice
             "expirationDate": "2024-10-05",
@@ -118,6 +119,7 @@ const initializeData = async () => {
             location: "3010 Bern",
             address: "Stockhornstrasse 22"
         },
+        {
             "imageUrl": "https://example.com/images/product12.jpg",
             "productName": "Erdnussbutter",  // Peanut Butter
             "expirationDate": "2024-10-20",
@@ -199,7 +201,7 @@ const index = () => {
     const [search, setSearch] = useState('');
     const [foodData, setFoodData] = useState([]);
 
-    const {productIds} = useLocalSearchParams();
+    const { productIds } = useLocalSearchParams();
 
     useEffect(() => {
         const fetchData = async () => {
