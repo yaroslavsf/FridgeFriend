@@ -51,6 +51,30 @@ const explore = () => {
         // wait 5 seconds then switch to slide 2
         analyzeImageWithStructuredOutput(sampleData, mealType).then((response) => {
             setAiRecipes(JSON.parse(response.data["choices"][0]["message"]["content"])["recipes"])
+            const fetchImagesForRecipes = async () => {
+                const updatedRecipes = await Promise.all(AiRecipes.map(async (recipe) => {
+                    try {
+                        const response = await unsplash_image(recipe.name);
+                        const imageUrl = response.data.results[0]?.urls.small || "https://via.placeholder.com/150"; // Fallback image
+                        return {
+                            ...recipe,
+                            imageUrl: imageUrl
+                        };
+                    } catch (error) {
+                        console.error("Error fetching image:", error);
+                        return {
+                            ...recipe,
+                            imageUrl: "https://via.placeholder.com/150" // Fallback image
+                        };
+                    }
+                }));
+                setAiRecipes(updatedRecipes);
+            };
+
+            if (AiRecipes.length > 0) {
+                fetchImagesForRecipes();
+            }
+
             setSlide(2);
 
         })
