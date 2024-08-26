@@ -14,11 +14,7 @@ const Products = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                let data = await AsyncStorage.getItem('foodData');
-                if (!data) {
-                    await initializeData();
-                    data = await AsyncStorage.getItem('foodData');
-                }
+                let data = await AsyncStorage.getItem('myProducts');
                 setData(JSON.parse(data));
             } catch (error) {
                 console.error("Failed to fetch data from AsyncStorage:", error);
@@ -38,9 +34,7 @@ const Products = () => {
                 <ScrollView style={{ flex: 1, width: '100%', marginTop: 25 }}>
                     {data.length > 0 ? (
                         data.map((item, index) =>   {
-                            if (index >= 3) {
-                                return <></>
-                            } else return (
+                            return (
                                 <View key={index} style={{ marginBottom: 10 }}>
                                     <FoodWidget
                                         imageUrl={item.imageUrl}

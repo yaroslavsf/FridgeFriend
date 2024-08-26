@@ -273,7 +273,7 @@ const explore = () => {
                                     className="bg-blue-500 text-white rounded-lg mt-5 w-full py-5"
                                     onPress={() => navigation.navigate('index')}
                                 >
-                                    <Text className="text-center w-full text-white">Bestäue</Text>
+                                    <Text className="text-center w-full text-white">Bestellen</Text>
                                 </TouchableOpacity>
 
                             </TouchableOpacity>
